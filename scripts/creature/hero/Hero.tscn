@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bytcnhnqbhwj7"]
+
+[ext_resource type="Script" path="res://scripts/creature/hero/Hero.gd" id="1_lenxs"]
+[ext_resource type="PackedScene" uid="uid://cm0xfa50wwfo3" path="res://scripts/creature/Creature.tscn" id="1_r7a2f"]
+[ext_resource type="Texture2D" uid="uid://dwvmx5g4v5mw2" path="res://assets/ui/Draw.aseprite" id="3_vf68f"]
+[ext_resource type="Script" path="res://scripts/util/IconValue.gd" id="4_ghuc8"]
+
+[node name="Hero" instance=ExtResource("1_r7a2f")]
+script = ExtResource("1_lenxs")
+equipment = null
+rpg_class = null
+
+[node name="Draw" type="TextureRect" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = 40.0
+offset_bottom = 16.0
+grow_vertical = 0
+texture = ExtResource("3_vf68f")
+script = ExtResource("4_ghuc8")
+icon = ExtResource("3_vf68f")

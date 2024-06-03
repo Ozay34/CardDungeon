@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm0xfa50wwfo3"]
+
+[ext_resource type="Script" path="res://scripts/creature/Creature.gd" id="1_ue0hl"]
+[ext_resource type="Texture2D" uid="uid://d8whdua0gpxw" path="res://assets/ui/Health.aseprite" id="2_r3kxx"]
+[ext_resource type="LabelSettings" uid="uid://qbjjaf55db" path="res://assets/ui/HalfBit.tres" id="3_tt7uy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r1xoq"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxflb"]
+atlas = ExtResource("2_r3kxx")
+region = Rect2(0, 18, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nswys"]
+atlas = ExtResource("2_r3kxx")
+region = Rect2(0, 0, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwgr1"]
+atlas = ExtResource("2_r3kxx")
+region = Rect2(0, 9, 64, 9)
+
+[node name="Creature" type="Control"]
+custom_minimum_size = Vector2(100, 76)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 74.0
+script = ExtResource("1_ue0hl")
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 1
+texture = SubResource("PlaceholderTexture2D_r1xoq")
+
+[node name="Statuses" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 2
+
+[node name="Health" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -11.0
+offset_right = 64.0
+offset_bottom = -2.0
+grow_vertical = 0
+texture_under = SubResource("AtlasTexture_uxflb")
+texture_over = SubResource("AtlasTexture_nswys")
+texture_progress = SubResource("AtlasTexture_gwgr1")
+
+[node name="Current" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "1"
+label_settings = ExtResource("3_tt7uy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Max" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "1"
+label_settings = ExtResource("3_tt7uy")
+horizontal_alignment = 1
+vertical_alignment = 1

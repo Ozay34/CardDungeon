@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06geufkwdsna"]
+
+[ext_resource type="Script" path="res://scripts/party/PartyFormation.gd" id="1_ecaco"]
+[ext_resource type="Texture2D" uid="uid://ctuhymodqiwlu" path="res://assets/ui/Add.aseprite" id="2_ja60u"]
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="3_ddd8x"]
+[ext_resource type="Texture2D" uid="uid://wdnp1fv4djjx" path="res://assets/ui/Done.aseprite" id="3_nqdei"]
+[ext_resource type="PackedScene" uid="uid://bu7up8ttsmtql" path="res://scripts/party/HeroSelect.tscn" id="4_hn7ep"]
+
+[node name="PartyFormation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ecaco")
+
+[node name="Party" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Heroes" type="HBoxContainer" parent="Party"]
+layout_mode = 2
+
+[node name="Hero0" type="TextureButton" parent="Party/Heroes"]
+layout_mode = 2
+texture_normal = ExtResource("2_ja60u")
+texture_pressed = ExtResource("2_ja60u")
+texture_hover = ExtResource("2_ja60u")
+texture_disabled = ExtResource("2_ja60u")
+texture_focused = ExtResource("2_ja60u")
+
+[node name="Hero1" type="TextureButton" parent="Party/Heroes"]
+layout_mode = 2
+texture_normal = ExtResource("2_ja60u")
+texture_pressed = ExtResource("2_ja60u")
+texture_hover = ExtResource("2_ja60u")
+texture_disabled = ExtResource("2_ja60u")
+texture_focused = ExtResource("2_ja60u")
+
+[node name="Hero2" type="TextureButton" parent="Party/Heroes"]
+layout_mode = 2
+texture_normal = ExtResource("2_ja60u")
+texture_pressed = ExtResource("2_ja60u")
+texture_hover = ExtResource("2_ja60u")
+texture_disabled = ExtResource("2_ja60u")
+texture_focused = ExtResource("2_ja60u")
+
+[node name="Hero3" type="TextureButton" parent="Party/Heroes"]
+layout_mode = 2
+texture_normal = ExtResource("2_ja60u")
+texture_pressed = ExtResource("2_ja60u")
+texture_hover = ExtResource("2_ja60u")
+texture_disabled = ExtResource("2_ja60u")
+texture_focused = ExtResource("2_ja60u")
+
+[node name="VSeparator" type="VSeparator" parent="Party"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Done" type="Button" parent="Party"]
+layout_mode = 2
+theme = ExtResource("3_ddd8x")
+icon = ExtResource("3_nqdei")
+
+[node name="HeroInspect" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HeroSelect0" parent="HeroInspect" instance=ExtResource("4_hn7ep")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+grow_horizontal = 1
+
+[node name="HeroSelect1" parent="HeroInspect" instance=ExtResource("4_hn7ep")]
+layout_mode = 1
+
+[node name="HeroSelect2" parent="HeroInspect" instance=ExtResource("4_hn7ep")]
+layout_mode = 1
+
+[node name="HeroSelect3" parent="HeroInspect" instance=ExtResource("4_hn7ep")]
+layout_mode = 1
+
+[connection signal="pressed" from="Party/Heroes/Hero0" to="." method="select_hero" binds= [0]]
+[connection signal="pressed" from="Party/Heroes/Hero1" to="." method="select_hero" binds= [1]]
+[connection signal="pressed" from="Party/Heroes/Hero2" to="." method="select_hero" binds= [2]]
+[connection signal="pressed" from="Party/Heroes/Hero3" to="." method="select_hero" binds= [3]]
+[connection signal="pressed" from="Party/Done" to="." method="done_pressed"]
+[connection signal="selected" from="HeroInspect/HeroSelect0" to="." method="set_hero"]

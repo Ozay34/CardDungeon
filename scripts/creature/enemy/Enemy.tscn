@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://d15fkliyc2w18"]
+
+[ext_resource type="PackedScene" uid="uid://cm0xfa50wwfo3" path="res://scripts/creature/Creature.tscn" id="1_ppj7r"]
+[ext_resource type="Script" path="res://scripts/creature/enemy/Enemy.gd" id="2_g6dv5"]
+
+[node name="Enemy" instance=ExtResource("1_ppj7r")]
+script = ExtResource("2_g6dv5")
+
+[node name="Sprite" parent="." index="0"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+offset_right = 64.0
+offset_bottom = -2.0
+grow_vertical = 0
+
+[node name="Health" parent="." index="2"]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 9.0
+grow_vertical = 1
+
+[node name="Intent" type="HBoxContainer" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+offset_bottom = 16.0
+grow_vertical = 0
+alignment = 1

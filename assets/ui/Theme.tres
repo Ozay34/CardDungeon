@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://unfbmjumm3pq"]
+
+[ext_resource type="FontFile" uid="uid://der1v5myfj477" path="res://assets/ui/HalfBit.otf" id="1_2crl7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajphd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lq55o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3c4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mjduy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dq6l3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tawi4"]
+bg_color = Color(0, 0, 0, 0.486275)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 1.0
+shadow_color = Color(0, 0, 0, 0.411765)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fobip"]
+
+[resource]
+Button/font_sizes/font_size = 3
+Button/fonts/font = ExtResource("1_2crl7")
+Button/styles/disabled = SubResource("StyleBoxEmpty_ajphd")
+Button/styles/focus = SubResource("StyleBoxEmpty_lq55o")
+Button/styles/hover = SubResource("StyleBoxEmpty_y3c4o")
+Button/styles/normal = SubResource("StyleBoxEmpty_mjduy")
+Button/styles/pressed = SubResource("StyleBoxEmpty_dq6l3")
+Label/font_sizes/font_size = 3
+Label/fonts/font = ExtResource("1_2crl7")
+Panel/styles/panel = SubResource("StyleBoxFlat_tawi4")
+RichTextLabel/font_sizes/normal_font_size = 3
+RichTextLabel/fonts/normal_font = ExtResource("1_2crl7")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_fobip")
+TextEdit/font_sizes/font_size = 6
+TextEdit/fonts/font = ExtResource("1_2crl7")

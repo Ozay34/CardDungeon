@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3yyeple04c5t"]
+
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="1_8nrli"]
+[ext_resource type="Script" path="res://scripts/card/CardView.gd" id="2_kvync"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aujqy"]
+size = Vector2(60, 84)
+
+[node name="CardView" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 60.0
+offset_bottom = 84.0
+mouse_filter = 1
+script = ExtResource("2_kvync")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -42.0
+offset_right = 30.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme = ExtResource("1_8nrli")
+texture = SubResource("PlaceholderTexture2D_aujqy")
+
+[node name="Layout" type="VBoxContainer" parent="Background"]
+custom_minimum_size = Vector2(54, 76)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -38.0
+offset_right = 27.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Background/Layout"]
+layout_mode = 2
+text = "Card"
+horizontal_alignment = 1
+
+[node name="Primary" type="Panel" parent="Background/Layout"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Center" type="CenterContainer" parent="Background/Layout/Primary"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Background/Layout/Primary/Center"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="Secondary" type="Panel" parent="Background/Layout"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Center" type="CenterContainer" parent="Background/Layout/Secondary"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Background/Layout/Secondary/Center"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="Background" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Background" to="." method="mouse_exited"]
