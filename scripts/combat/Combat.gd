@@ -36,3 +36,6 @@ func end_turn():
 			status.turn_ended(creature)
 	
 	encounter.enemy_turn()
+
+	for hero in Party.heroes:
+		$Hand.draw_from(hero, 1)

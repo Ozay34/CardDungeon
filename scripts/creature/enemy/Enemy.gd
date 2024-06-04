@@ -17,3 +17,9 @@ static func create(sprite, health):
 		for child in $Intent.get_children():
 			$Intent.remove_child(child)
 		$Intent.add_child(v)
+
+func _can_drop_data(at_position, data):
+	return is_instance_of(data, CardSplit)
+	
+func _drop_data(at_position, split):
+	split.finalize_turn(self)

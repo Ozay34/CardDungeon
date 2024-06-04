@@ -8,7 +8,9 @@ func _init():
 	secondary_text = "aaaaaaaaaaaaaaaaaa"
 
 func primary(target):
+	target.apply_status(Status.Block, 2)
 	pass
 	
 func secondary(target):
+	target.apply_status(Status.Block, 10)
 	pass

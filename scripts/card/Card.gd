@@ -1,6 +1,8 @@
 extends Resource
 class_name Card
 
+signal played
+
 @export var background: Texture
 @export var title := ""
 @export var primary_text := ""
@@ -11,13 +13,7 @@ func get_view():
 	view.card = self
 	return view
 
-func get_playable():
-	var view = CardView.scene.instantiate()
-	view.card = self
-	view.playable = true
-	return view
-
-func primarty(target):
+func primary(target):
 	pass
 	
 func secondary(target):

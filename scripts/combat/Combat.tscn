@@ -60,29 +60,6 @@ grow_vertical = 2
 
 [node name="Camera" type="Camera2D" parent="CameraContainer"]
 
-[node name="Hand" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("3_ftuk5")
-
-[node name="Path" type="HBoxContainer" parent="Hand"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
-
-[node name="Path2" type="Path2D" parent="Hand"]
-curve = SubResource("Curve2D_io7lv")
-
 [node name="Combatants" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -109,6 +86,19 @@ offset_top = -80.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Hand" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_ftuk5")
+
+[node name="Path" type="Path2D" parent="Hand"]
+curve = SubResource("Curve2D_io7lv")
 
 [node name="EndTurn" type="Button" parent="."]
 layout_mode = 0
