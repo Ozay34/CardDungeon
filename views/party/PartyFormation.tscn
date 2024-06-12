@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06geufkwdsna"]
+
+[ext_resource type="Script" path="res://views/party/PartyFormation.gd" id="1_ecaco"]
+[ext_resource type="Texture2D" uid="uid://ctuhymodqiwlu" path="res://assets/ui/Add.aseprite" id="2_ja60u"]
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="3_ddd8x"]
+[ext_resource type="Texture2D" uid="uid://wdnp1fv4djjx" path="res://assets/ui/Done.aseprite" id="3_nqdei"]
+[ext_resource type="PackedScene" uid="uid://bu7up8ttsmtql" path="res://views/party/AllyInspect.tscn" id="4_hn7ep"]
+
+[node name="PartyFormation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ddd8x")
+script = ExtResource("1_ecaco")
+
+[node name="Party" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Allies" type="HBoxContainer" parent="Party"]
+layout_mode = 2
+
+[node name="Ally0" type="Button" parent="Party/Allies"]
+layout_mode = 2
+icon = ExtResource("2_ja60u")
+
+[node name="Ally1" type="Button" parent="Party/Allies"]
+layout_mode = 2
+icon = ExtResource("2_ja60u")
+
+[node name="Ally2" type="Button" parent="Party/Allies"]
+layout_mode = 2
+icon = ExtResource("2_ja60u")
+
+[node name="Ally3" type="Button" parent="Party/Allies"]
+layout_mode = 2
+icon = ExtResource("2_ja60u")
+
+[node name="VSeparator" type="VSeparator" parent="Party"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Done" type="Button" parent="Party"]
+layout_mode = 2
+theme = ExtResource("3_ddd8x")
+icon = ExtResource("3_nqdei")
+
+[node name="Inspect" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Ally0" parent="Inspect" instance=ExtResource("4_hn7ep")]
+visible = false
+layout_mode = 1
+
+[node name="Ally1" parent="Inspect" instance=ExtResource("4_hn7ep")]
+visible = false
+layout_mode = 1
+
+[node name="Ally2" parent="Inspect" instance=ExtResource("4_hn7ep")]
+visible = false
+layout_mode = 1
+
+[node name="Ally3" parent="Inspect" instance=ExtResource("4_hn7ep")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Party/Allies/Ally0" to="." method="select_ally" binds= [0]]
+[connection signal="pressed" from="Party/Allies/Ally1" to="." method="select_ally" binds= [1]]
+[connection signal="pressed" from="Party/Allies/Ally2" to="." method="select_ally" binds= [2]]
+[connection signal="pressed" from="Party/Allies/Ally3" to="." method="select_ally" binds= [3]]
+[connection signal="pressed" from="Party/Done" to="." method="done_pressed"]

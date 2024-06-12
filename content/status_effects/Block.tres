@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Status" load_steps=4 format=3 uid="uid://m64l1xhpb2dh"]
+
+[ext_resource type="Script" path="res://scripts/creature/Status.gd" id="1_bikn7"]
+[ext_resource type="Texture2D" uid="uid://baipdjtqidnlf" path="res://assets/status/Block.aseprite" id="1_pcyga"]
+
+[sub_resource type="GDScript" id="GDScript_s6pww"]
+script/source = "extends Status.Instance
+
+func healed(creature, amt):
+	return amt
+"
+
+[resource]
+script = ExtResource("1_bikn7")
+icon = ExtResource("1_pcyga")
+effect = SubResource("GDScript_s6pww")

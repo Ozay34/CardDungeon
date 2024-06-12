@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Intent" load_steps=4 format=3 uid="uid://wgtxava1hj2t"]
+
+[ext_resource type="Script" path="res://scripts/creature/enemy/Intent.gd" id="1_3bcvx"]
+[ext_resource type="Texture2D" uid="uid://doik1jmur4yub" path="res://assets/intent/Attack.aseprite" id="1_rp3jh"]
+
+[sub_resource type="GDScript" id="GDScript_px4aq"]
+script/source = "extends Intent.Instance
+
+func applied(creature: Creature):
+	creature.damage(amount)
+"
+
+[resource]
+script = ExtResource("1_3bcvx")
+icon = ExtResource("1_rp3jh")
+action = SubResource("GDScript_px4aq")

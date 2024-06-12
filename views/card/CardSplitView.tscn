@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc72g7ca02x1i"]
+
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="1_iuy0s"]
+[ext_resource type="Script" path="res://views/card/CardSplitView.gd" id="1_ldode"]
+[ext_resource type="Texture2D" uid="uid://cjl7ujlybank0" path="res://assets/ui/Cancel.aseprite" id="3_8c85e"]
+
+[node name="CardSplitView" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iuy0s")
+script = ExtResource("1_ldode")
+
+[node name="Split" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -42.0
+offset_right = 64.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+dragger_visibility = 1
+
+[node name="Secondary" type="VBoxContainer" parent="Split"]
+layout_mode = 2
+
+[node name="Item" type="CenterContainer" parent="Split/Secondary"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="CardAction" type="Panel" parent="Split/Secondary"]
+custom_minimum_size = Vector2(54, 32)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Center" type="CenterContainer" parent="Split/Secondary/CardAction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Split/Secondary/CardAction/Center"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="Primary" type="VBoxContainer" parent="Split"]
+layout_mode = 2
+
+[node name="Item" type="CenterContainer" parent="Split/Primary"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="CardAction" type="Panel" parent="Split/Primary"]
+custom_minimum_size = Vector2(54, 32)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Center" type="CenterContainer" parent="Split/Primary/CardAction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Split/Primary/CardAction/Center"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_8c85e")
+
+[connection signal="pressed" from="Cancel" to="." method="cancel"]

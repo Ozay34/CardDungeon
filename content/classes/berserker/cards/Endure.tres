@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://dw5d5hkmtap6l"]
+
+[ext_resource type="Script" path="res://scripts/creature/ally/card/Card.gd" id="1_arkud"]
+[ext_resource type="Texture2D" uid="uid://bax672po1gsg4" path="res://assets/card/Berserker.aseprite" id="1_ku2li"]
+
+[sub_resource type="GDScript" id="GDScript_xw7h1"]
+script/source = "extends Card.Action
+
+const block = preload(\"res://content/status_effects/Block.tres\")
+
+func applied(target: Creature):
+	target.apply_status(block, 2)
+"
+
+[sub_resource type="GDScript" id="GDScript_p8mjv"]
+script/source = "extends Card.Action
+
+func applied(target: Creature):
+	#target.apply_status(, 2)
+	pass
+"
+
+[resource]
+script = ExtResource("1_arkud")
+face = ExtResource("1_ku2li")
+name = "Endure"
+primary_text = "Gain 2 block"
+secondary_text = "Cleanse 1 negative status"
+primary = SubResource("GDScript_xw7h1")
+secondary = SubResource("GDScript_p8mjv")

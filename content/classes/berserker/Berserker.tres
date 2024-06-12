@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RpgClass" load_steps=6 format=3 uid="uid://rc7vhkj0rf2d"]
+
+[ext_resource type="Script" path="res://scripts/creature/ally/card/Card.gd" id="1_6mlx0"]
+[ext_resource type="Resource" uid="uid://dw5d5hkmtap6l" path="res://content/classes/berserker/cards/Endure.tres" id="1_7ykfq"]
+[ext_resource type="Script" path="res://scripts/creature/ally/RpgClass.gd" id="1_i8n6a"]
+[ext_resource type="Texture2D" uid="uid://uwcl8v0prsg4" path="res://assets/classes/Berserker.aseprite" id="3_5sak1"]
+
+[sub_resource type="GDScript" id="GDScript_6lt3o"]
+script/source = "extends RpgClass.Instance
+"
+
+[resource]
+script = ExtResource("1_i8n6a")
+sprite = ExtResource("3_5sak1")
+max_hp = 24
+cards = Array[ExtResource("1_6mlx0")]([ExtResource("1_7ykfq")])
+passive = SubResource("GDScript_6lt3o")

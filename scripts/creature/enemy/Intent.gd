@@ -1,41 +1,19 @@
-extends IconValue
+extends Resource
 class_name Intent
 
-@export var amount = 0:
-	set(v):
-		amount = v
-		value = amount
-@export var targets: Array[Creature] = []
-
-func perform():
-	pass
-
-#region Instances
-
-class Attack extends Intent:
+class Instance extends Effect:
 	
-	func _init():
-		icon = preload("res://assets/intent/Attack.aseprite")
-	
-	func perform():
-		for target in targets:
-			target.damage(amount)
-
-class ApplyStatus extends Intent:
-	
-	const default_icon = preload("res://assets/intent/Unknown.aseprite")
-	
-	@export var status := Status:
+	var type: Intent
+	var amount: int = 0:
 		set(v):
-			status = v
-			if "icon_texture" in status:
-				icon = status.icon_texture
-			else:
-				icon = default_icon
-	@export var telegraphed = true
+			amount = v
+			changed.emit()
 	
-	func perform():
-		for target in targets:
-			target.apply_status(status, amount)
+	func _init(intent: Intent):
+		self.type = intent
 
-#endregion
+@export var icon: Texture
+@export var action: Script
+
+func instantiate():
+	return action.new(self)

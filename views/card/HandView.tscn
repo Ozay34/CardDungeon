@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnbg2kq7yb5mr"]
+
+[ext_resource type="Script" path="res://views/card/HandView.gd" id="1_cuq7x"]
+
+[sub_resource type="Curve2D" id="Curve2D_sp5bd"]
+_data = {
+"points": PackedVector2Array(0, 0, 16, -16, 64, 16, -64, 0, 64, 0, 256, -16, -16, -16, 0, 0, 448, 16)
+}
+point_count = 3
+
+[node name="HandView" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_cuq7x")
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sp5bd")

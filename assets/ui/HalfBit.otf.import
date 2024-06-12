@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/HalfBit.otf-de4f5557e9da96d126a2c81026798f7c.
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

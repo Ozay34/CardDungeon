@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cqrgtc7bv73h7"]
+
+[ext_resource type="Texture2D" uid="uid://c5lfa7j3p6c68" path="res://assets/items/Unarmed.aseprite" id="1_or5n4"]
+[ext_resource type="Script" path="res://scripts/creature/ally/Item.gd" id="2_v3dnx"]
+
+[sub_resource type="GDScript" id="GDScript_dp024"]
+script/source = "extends Item.Instance
+
+func applied(creature: Creature):
+	creature.damage(2)
+"
+
+[resource]
+script = ExtResource("2_v3dnx")
+icon = ExtResource("1_or5n4")
+slot = 4
+name = "Unarmed"
+description = "Deal 2 damage"
+effect = SubResource("GDScript_dp024")

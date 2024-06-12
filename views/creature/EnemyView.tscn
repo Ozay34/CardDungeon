@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuwfrr5pbp0ll"]
+
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="1_hscsa"]
+[ext_resource type="Script" path="res://views/creature/EnemyView.gd" id="2_oxvmw"]
+[ext_resource type="Texture2D" uid="uid://d8whdua0gpxw" path="res://assets/ui/Health.aseprite" id="2_uo73g"]
+[ext_resource type="Script" path="res://views/creature/IntentView.gd" id="3_n6377"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sce31"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uuwa"]
+atlas = ExtResource("2_uo73g")
+region = Rect2(0, 18, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_857gj"]
+atlas = ExtResource("2_uo73g")
+region = Rect2(0, 0, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug4kd"]
+atlas = ExtResource("2_uo73g")
+region = Rect2(0, 9, 64, 9)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3w1kx"]
+size = Vector2(16, 16)
+
+[node name="EnemyView" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("1_hscsa")
+script = ExtResource("2_oxvmw")
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("PlaceholderTexture2D_sce31")
+
+[node name="Statuses" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -10.0
+offset_right = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Health" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -10.0
+offset_bottom = -1.0
+grow_horizontal = 2
+texture_under = SubResource("AtlasTexture_1uuwa")
+texture_over = SubResource("AtlasTexture_857gj")
+texture_progress = SubResource("AtlasTexture_ug4kd")
+
+[node name="Current" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 6.0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 2
+
+[node name="Max" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 2
+
+[node name="IntentView" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("PlaceholderTexture2D_3w1kx")
+script = ExtResource("3_n6377")

@@ -1,25 +1,38 @@
 extends Creature
 class_name Enemy
 
-const scene = preload("Enemy.tscn")
-
-static func create(sprite, health):
-	var enemy = scene.instantiate()
-	enemy.sprite = sprite
-	enemy.max_hp = health
-	return enemy
-
-@export var intent: Intent:
-	set(v):
-		intent = v
-		
-		if not is_node_ready(): await ready
-		for child in $Intent.get_children():
-			$Intent.remove_child(child)
-		$Intent.add_child(v)
-
-func _can_drop_data(at_position, data):
-	return is_instance_of(data, CardSplit)
+class AttackPattern extends Resource:
 	
-func _drop_data(at_position, split):
-	split.finalize_turn(self)
+	var enemy
+	
+	func _init(enemy):
+		self.enemy = enemy
+	
+	func determine_intent() -> Intent.Instance:
+		return null
+	
+	func determine_target() -> Creature:
+		return null
+
+@export var sprite: Texture
+@export var attack_pattern: Script:
+	set(v):
+		attack_pattern = v
+		pattern = attack_pattern.new(self)
+var pattern: AttackPattern
+
+var intent: Intent.Instance
+var target: Creature
+
+func start_turn(turn: int):
+	super.start_turn(turn)
+	target.add_temporary_effect(intent)
+
+func end_turn(turn: int):
+	super.end_turn(turn)
+	determine_intent()
+
+func determine_intent():
+	intent = pattern.determine_intent()
+	target = pattern.determine_target()
+	changed.emit()

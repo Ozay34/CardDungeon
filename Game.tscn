@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crxko46xs7gy"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_bh2re"]
-[ext_resource type="PackedScene" uid="uid://c06geufkwdsna" path="res://scripts/party/PartyFormation.tscn" id="2_nx4g3"]
+[ext_resource type="PackedScene" uid="uid://c06geufkwdsna" path="res://views/party/PartyFormation.tscn" id="2_obhy0"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bh2re")
 
-[node name="PartyFormation" parent="." instance=ExtResource("2_nx4g3")]
+[node name="PartyFormation" parent="." instance=ExtResource("2_obhy0")]
 layout_mode = 1
 
-[connection signal="done" from="PartyFormation" to="." method="begin_combat"]
+[connection signal="done" from="PartyFormation" to="." method="party_created"]

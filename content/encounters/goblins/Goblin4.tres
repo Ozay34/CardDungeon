@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://o6fmh6xgnm08"]
+
+[ext_resource type="Script" path="res://scripts/creature/enemy/Enemy.gd" id="1_rrl34"]
+[ext_resource type="Texture2D" uid="uid://dq3dy7sh2hcuc" path="res://assets/enemy/Goblin.aseprite" id="2_xersf"]
+
+[sub_resource type="GDScript" id="GDScript_spcdn"]
+script/source = "extends Enemy.AttackPattern
+
+const attack = preload(\"res://content/intents/Attack.tres\")
+
+func determine_intent() -> Intent.Instance:
+	var intent = attack.instantiate()
+	intent.amount = randi_range(4, 6)
+	return intent
+	
+func determine_target() -> Creature:
+	return enemy.facing
+"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_rrl34")
+sprite = ExtResource("2_xersf")
+attack_pattern = SubResource("GDScript_spcdn")
+max_hp = 12

@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbs7fxmij1d1w"]
+
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="1_mn3ik"]
+[ext_resource type="Script" path="res://views/creature/AllyView.gd" id="2_or3mu"]
+[ext_resource type="Texture2D" uid="uid://d8whdua0gpxw" path="res://assets/ui/Health.aseprite" id="3_31vxo"]
+[ext_resource type="Texture2D" uid="uid://dwvmx5g4v5mw2" path="res://assets/ui/Draw.aseprite" id="4_ms6ja"]
+[ext_resource type="Script" path="res://views/util/IconValue.gd" id="5_5wf4u"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y14jy"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nstft"]
+atlas = ExtResource("3_31vxo")
+region = Rect2(0, 18, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fmkc"]
+atlas = ExtResource("3_31vxo")
+region = Rect2(0, 0, 64, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6aea"]
+atlas = ExtResource("3_31vxo")
+region = Rect2(0, 9, 64, 9)
+
+[node name="AllyView" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("1_mn3ik")
+script = ExtResource("2_or3mu")
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("PlaceholderTexture2D_y14jy")
+
+[node name="Statuses" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 34.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Health" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_under = SubResource("AtlasTexture_nstft")
+texture_over = SubResource("AtlasTexture_2fmkc")
+texture_progress = SubResource("AtlasTexture_i6aea")
+
+[node name="Current" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 6.0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 2
+
+[node name="Max" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 2
+
+[node name="DrawPile" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 11.0
+offset_right = 8.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_ms6ja")
+script = ExtResource("5_5wf4u")
+icon = ExtResource("4_ms6ja")

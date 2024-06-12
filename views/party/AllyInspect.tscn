@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu7up8ttsmtql"]
+
+[ext_resource type="Script" path="res://views/party/AllyInspect.gd" id="1_2o5t4"]
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="1_dktlq"]
+
+[node name="AllyInspect" type="HSplitContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme = ExtResource("1_dktlq")
+split_offset = 256
+dragger_visibility = 2
+script = ExtResource("1_2o5t4")
+
+[node name="Classes" type="HFlowContainer" parent="."]
+layout_mode = 2
+
+[node name="Deck" type="HFlowContainer" parent="."]
+layout_mode = 2

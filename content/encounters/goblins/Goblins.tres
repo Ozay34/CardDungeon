@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=8 format=3 uid="uid://cywvpmof5gert"]
+
+[ext_resource type="Texture2D" uid="uid://hndbl8pybn5e" path="res://assets/background/Background.aseprite" id="1_u11e4"]
+[ext_resource type="Script" path="res://scripts/creature/enemy/Encounter.gd" id="2_ecpuv"]
+[ext_resource type="Script" path="res://scripts/creature/enemy/Enemy.gd" id="2_hk64i"]
+[ext_resource type="Resource" uid="uid://dd0jfftyhlftp" path="res://content/encounters/goblins/Goblin1.tres" id="2_risqh"]
+[ext_resource type="Resource" uid="uid://m0ipwgm4axcr" path="res://content/encounters/goblins/Goblin2.tres" id="3_c6fln"]
+[ext_resource type="Resource" uid="uid://ddhy8d7evlf4k" path="res://content/encounters/goblins/Goblin3.tres" id="4_eonsg"]
+[ext_resource type="Resource" uid="uid://o6fmh6xgnm08" path="res://content/encounters/goblins/Goblin4.tres" id="5_j3oq5"]
+
+[resource]
+script = ExtResource("2_ecpuv")
+background = ExtResource("1_u11e4")
+enemies = Array[ExtResource("2_hk64i")]([ExtResource("2_risqh"), ExtResource("3_c6fln"), ExtResource("4_eonsg"), ExtResource("5_j3oq5")])

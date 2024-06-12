@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc72g7ca02x1i"]
+
+[ext_resource type="Theme" uid="uid://unfbmjumm3pq" path="res://assets/ui/Theme.tres" id="1_iuy0s"]
+[ext_resource type="Script" path="res://views/card/CardSplitView.gd" id="1_ldode"]
+
+[node name="CardSplitView" type="HSplitContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -16.0
+offset_right = 60.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iuy0s")
+dragger_visibility = 1
+script = ExtResource("1_ldode")
+
+[node name="Secondary" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Item" type="Control" parent="Secondary"]
+layout_mode = 2
+
+[node name="CardAction" type="Panel" parent="Secondary"]
+custom_minimum_size = Vector2(54, 32)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Center" type="CenterContainer" parent="Secondary/CardAction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Secondary/CardAction/Center"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="Primary" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Item" type="Control" parent="Primary"]
+layout_mode = 2
+
+[node name="CardAction" type="Panel" parent="Primary"]
+custom_minimum_size = Vector2(54, 32)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Center" type="CenterContainer" parent="Primary/CardAction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Primary/CardAction/Center"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
