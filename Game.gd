@@ -14,7 +14,7 @@ func party_created():
 	add_child(combat)
 	combat.begin_combat()
 
-#func begin_combat():
+#func begin_combat():2
 	#for child in get_children():
 		#child.visible = false
 	#var combat = Combat.scene.instantiate()
